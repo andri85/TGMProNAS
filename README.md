@@ -1,3 +1,23 @@
+# Telegram Manager Pro 1.2-00200
+
+La versione è Telegram Manager Pro 1.2-00200, pacchetto aggiornato fix-porta-sessione, destinato al Synology DS218 con DSM 7.
+Correzioni di questo pacchetto
+- Icona nel menu DSM: apre l’app direttamente su HTTP, porta 8787, evitando il vecchio percorso sulla porta 5000.
+- Sessione di accesso: usa cookie separati per protocollo e porta, evitando conflitti con quelli delle versioni precedenti.
+- Verifica del login: controlla che il browser abbia conservato la sessione prima di entrare.
+- Password: viene svuotata solo dopo l’accesso completato. Se manca il cookie, compare un messaggio specifico e puoi riprovare.
+- Interfaccia: testi più chiari sulla distinzione tra accesso DSM e accesso all’app.
+Funzioni mantenute
+- Gestione account Telegram, chat e canali.
+- Upload, download e code di trasferimento.
+- Scansione canali, catalogo, ricerca e gestione duplicati.
+- Cartelle sorvegliate, backup e collegamenti cloud tramite rclone.
+- Tab per compilare le caption vuote, ad esempio fileName: $nomefile, con anteprima, filtri ed esportazione CSV. Questa funzione modifica la caption, non il nome del file allegato.
+Accesso e limiti
+L’indirizzo standard è http://x.x.x.x:8787/, senza reverse proxy. Il login al desktop DSM non autentica automaticamente l’app: devi inserire le credenziali DSM anche in Telegram Manager. La sessione dura 8 ore e termina se il servizio viene riavviato.
+HTTPS diretto è configurabile, ma l’icona standard resta impostata su HTTP 8787. La modifica della banda durante i trasferimenti realizzata per l’edizione Windows non è inclusa in questa correzione NAS.
+Verifiche: superati 15 test automatici e la prova del login con browser e server locali. L’autenticazione DSM era simulata: il funzionamento sul tuo NAS non è ancora confermato.
+
 # Telegram Manager Pro
 
 Gestore web per organizzare account Telegram, trasferire file tra Telegram e NAS, indicizzare canali e automatizzare gli upload.
