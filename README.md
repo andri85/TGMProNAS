@@ -1,3 +1,76 @@
+Novità della versione 1.2-00202
+
+Controllo della banda durante i trasferimenti
+
+Aggiunto il pulsante Banda nella coda delle operazioni. Permette di modificare la velocità massima di upload e download già in corso, senza fermare o ricreare il trasferimento.
+
+Limite indipendente per ogni operazione.
+
+Budget condiviso tra le connessioni parallele della stessa operazione.
+
+Impostazione salvata per pause, riprese e riavvio del servizio.
+
+Supporto ai trasferimenti di file durante backup e ripristino.
+
+Validazione dei valori e controllo dei permessi dell’utente.
+
+Valore
+
+Limite
+
+0
+
+Nessun limite
+
+512
+
+512 KiB/s
+
+1024
+
+1 MiB/s
+
+10240
+
+10 MiB/s
+
+Utilizzo: apri la coda, premi Banda, inserisci il valore in KiB/s e conferma.
+
+Il limite riguarda i trasferimenti NAS ↔ Telegram. Non si applica al caricamento browser → NAS, ai trasferimenti cloud tramite rclone o agli inoltri interni a Telegram. I blocchi già in rete possono completarsi prima dell’applicazione del nuovo limite.
+
+Pacchetti disponibili
+
+Pacchetto
+
+Destinazione
+
+TelegramManagerPro-DS218-DSM7-1.2-00202.spk
+
+Synology DS218, architettura ARM64 rtd1296
+
+TelegramManagerPro-Intel-x86_64-DSM7-1.2-00202.spk
+
+Synology con CPU Intel a 64 bit, architettura x86_64
+
+Entrambe le edizioni includono le stesse funzioni e il componente rclone per la rispettiva architettura.
+
+Requisiti e aggiornamento
+
+DSM 7.0 o successivo.
+
+Python 3.8 o successivo con sqlite3, ssl e asyncio.
+
+Installa lo SPK adatto da Centro pacchetti → Installazione manuale, senza disinstallare la versione precedente. Dopo l’aggiornamento, ricarica la pagina dell’app.
+
+Accesso dal menu DSM oppure da http://IP_DEL_NAS:8787/, senza reverse proxy.
+
+Verifiche
+
+Superati 8 test specifici del controllo banda, 15 test di regressione e la prova di avvio locale. Verificati struttura dei pacchetti, architetture degli eseguibili e collegamento del pulsante alla nuova API.
+
+I test dei trasferimenti utilizzano simulazioni: installazione e prestazioni sui NAS reali restano da verificare.
+
+
 # Telegram Manager Pro 1.2-00200
 
 La versione è Telegram Manager Pro 1.2-00200, pacchetto aggiornato fix-porta-sessione, destinato al Synology DS218 con DSM 7.
