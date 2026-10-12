@@ -1,74 +1,68 @@
-Novità della versione 1.2-00202
+## Novità — Versione 1.2-00202
 
-Controllo della banda durante i trasferimenti
+### Banda modificabile durante i trasferimenti
 
-Aggiunto il pulsante Banda nella coda delle operazioni. Permette di modificare la velocità massima di upload e download già in corso, senza fermare o ricreare il trasferimento.
+Aggiunto il pulsante **Banda** nella coda delle operazioni per modificare il limite di upload e download senza interrompere il trasferimento.
 
-Limite indipendente per ogni operazione.
+- Limite indipendente per ogni operazione.
+- Banda condivisa tra le connessioni parallele della stessa operazione.
+- Impostazione conservata per pause, riprese e riavvio del servizio.
+- Supporto ai trasferimenti di file durante backup e ripristino.
+- Controllo dei permessi e validazione dei valori inseriti.
 
-Budget condiviso tra le connessioni parallele della stessa operazione.
+#### Utilizzo
 
-Impostazione salvata per pause, riprese e riavvio del servizio.
+1. Apri la coda delle operazioni.
+2. Premi **Banda** accanto al trasferimento.
+3. Inserisci il limite in **KiB/s** e conferma.
 
-Supporto ai trasferimenti di file durante backup e ripristino.
+| Valore | Limite |
+|---|---|
+| `0` | Illimitato |
+| `512` | 512 KiB/s |
+| `1024` | 1 MiB/s |
+| `10240` | 10 MiB/s |
 
-Validazione dei valori e controllo dei permessi dell’utente.
+Il limite si applica ai trasferimenti **NAS ↔ Telegram**. Non riguarda il caricamento browser → NAS, i trasferimenti cloud tramite rclone o gli inoltri interni a Telegram.
 
-Valore
+I blocchi già in rete possono completarsi prima che il nuovo limite abbia effetto. La velocità istantanea può mostrare brevi picchi.
 
-Limite
+### Pacchetti disponibili
 
-0
+| File | NAS supportato | Architettura |
+|---|---|---|
+| `TelegramManagerPro-DS218-DSM7-1.2-00202.spk` | Synology DS218 | ARM64 / rtd1296 |
+| `TelegramManagerPro-Intel-x86_64-DSM7-1.2-00202.spk` | Synology con CPU Intel a 64 bit | x86_64 |
 
-Nessun limite
+Entrambi i pacchetti includono le stesse funzioni e la versione di rclone per la rispettiva architettura.
 
-512
+### Requisiti
 
-512 KiB/s
+- DSM 7.0 o successivo.
+- Python 3.8 o successivo con `sqlite3`, `ssl` e `asyncio`.
 
-1024
+### Installazione e aggiornamento
 
-1 MiB/s
+1. Scarica il pacchetto adatto al tuo NAS.
+2. Apri **Centro pacchetti → Installazione manuale**.
+3. Seleziona il file `.spk` e completa l'installazione.
+4. Per aggiornare, non disinstallare prima la versione precedente.
+5. Ricarica la pagina dell'app dopo l'aggiornamento.
 
-10240
+Apri Telegram Manager Pro dal menu DSM oppure visita:
 
-10 MiB/s
+`http://IP_DEL_NAS:8787/`
 
-Utilizzo: apri la coda, premi Banda, inserisci il valore in KiB/s e conferma.
+Non è necessario un reverse proxy.
 
-Il limite riguarda i trasferimenti NAS ↔ Telegram. Non si applica al caricamento browser → NAS, ai trasferimenti cloud tramite rclone o agli inoltri interni a Telegram. I blocchi già in rete possono completarsi prima dell’applicazione del nuovo limite.
+### Verifiche
 
-Pacchetti disponibili
+- Superati 8 test specifici del controllo banda.
+- Superati 15 test di regressione.
+- Superata la prova di avvio locale.
+- Verificati struttura SPK, architetture degli eseguibili e collegamento del pulsante alla nuova API.
 
-Pacchetto
-
-Destinazione
-
-TelegramManagerPro-DS218-DSM7-1.2-00202.spk
-
-Synology DS218, architettura ARM64 rtd1296
-
-TelegramManagerPro-Intel-x86_64-DSM7-1.2-00202.spk
-
-Synology con CPU Intel a 64 bit, architettura x86_64
-
-Entrambe le edizioni includono le stesse funzioni e il componente rclone per la rispettiva architettura.
-
-Requisiti e aggiornamento
-
-DSM 7.0 o successivo.
-
-Python 3.8 o successivo con sqlite3, ssl e asyncio.
-
-Installa lo SPK adatto da Centro pacchetti → Installazione manuale, senza disinstallare la versione precedente. Dopo l’aggiornamento, ricarica la pagina dell’app.
-
-Accesso dal menu DSM oppure da http://IP_DEL_NAS:8787/, senza reverse proxy.
-
-Verifiche
-
-Superati 8 test specifici del controllo banda, 15 test di regressione e la prova di avvio locale. Verificati struttura dei pacchetti, architetture degli eseguibili e collegamento del pulsante alla nuova API.
-
-I test dei trasferimenti utilizzano simulazioni: installazione e prestazioni sui NAS reali restano da verificare.
+**Nota:** i trasferimenti dei test sono simulati. Installazione e prestazioni sui NAS reali restano da verificare.
 
 
 # Telegram Manager Pro 1.2-00200
