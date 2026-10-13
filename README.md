@@ -1,3 +1,99 @@
+
+# Telegram Manager info su versione 1.2-000206
+
+La versione comprende gestione Telegram, trasferimenti, scansione canali, catalogo, automazioni e strumenti Synology.
+1. Dashboard e monitoraggio
+- Visualizzazione della velocità di upload e download.
+- Aggiornamento automatico dei trasferimenti.
+- Conteggio dei file indicizzati.
+- Dimensione complessiva dei dati catalogati.
+- Operazioni attive e stato della coda.
+- Statistiche sui trasferimenti effettuati tramite Manager.
+2. Accesso e account
+- Login con credenziali Synology DSM.
+- Supporto OTP quando richiesto.
+- Gestione di più account Telegram per utente DSM.
+- Autenticazione Telegram tramite codice e password 2FA.
+- Verifica connessione e stato Premium.
+- Sessioni persistenti e possibilità di disconnessione.
+- Accesso locale sulla porta 8787.
+- HTTPS diretto opzionale senza reverse proxy.
+- Controllo delle reti e degli host autorizzati.
+3. Chat, canali e gruppi
+- Elenco e ricerca delle chat.
+- Lettura e invio dei messaggi.
+- Visualizzazione dei file multimediali.
+- Gestione di canali e supergruppi.
+- Creazione, modifica e abbandono dei canali.
+- Gestione amministratori e autorizzazioni.
+- Invito e blocco degli utenti secondo i permessi disponibili.
+- Inoltro e copia dei messaggi fra chat.
+- Moderazione e filtri sulle parole.
+- Cancellazione dei messaggi con anteprima e conferma.
+4. Upload e download
+- Upload di file e cartelle dal browser al NAS.
+- Invio dei file presenti sul NAS verso Telegram.
+- Download di singoli media, chat e gruppi di file.
+- Upload a blocchi e supporto al trasferimento parallelo.
+- Pausa, ripresa e annullamento.
+- Recupero dei download interrotti.
+- Verifica dell'integrità dei file tramite SHA-256.
+- Gestione dei nomi originali e dei conflitti.
+- ZIP opzionali e suddivisione dei file quando necessaria.
+- Filtri per tipo, estensione, dimensione, caption e data.
+- Limite di banda per singole operazioni di download.
+- Invio dei video compatibili con metadati di durata e risoluzione.
+- Mini-player per audio e video locali.
+5. Scansione e indicizzazione dei canali
+- Selezione di uno o più canali e gruppi.
+- Lettura della cronologia accessibile.
+- Indicizzazione dei file senza scaricare i media.
+- Registrazione di nome, data, dimensione, autore, caption e tipo.
+- Salvataggio dei risultati in SQLite.
+- Aggiornamento dei record già presenti evitando duplicati dello stesso messaggio.
+- Ricerca nell'indice e download multiplo.
+- Pausa, ripresa e annullamento della scansione.
+- Pausa di 50 ms per messaggio indicizzato, introdotta nella 00206 per ridurre i picchi di utilizzo del NAS.
+La pausa di scansione non è un limitatore rigoroso in MB/s.
+6. Catalogo e organizzazione
+- Catalogazione dei file per account e canale.
+- Ricerca per nome, caption, autore, data e formato.
+- Tag e categorie personalizzate.
+- Filtri combinabili.
+- Rilevamento dei duplicati tramite hash.
+- Riferimenti ai file locali.
+- Esportazione del catalogo in CSV, JSON e SQLite compresso.
+- Gestione della cronologia delle caption.
+- Compilazione delle caption vuote con modelli.
+- Filtri e anteprima CSV per la compilazione.
+7. Automazioni e operazioni programmate
+- Regole di sincronizzazione dei nuovi messaggi.
+- Download automatico dei media secondo filtri.
+- Inoltro automatico verso altre chat.
+- Regole di pulizia periodica dei messaggi.
+- Cartelle sorvegliate.
+- Componenti dedicati a pianificazione, calendario e bot presenti nel pacchetto.
+Per calendario e bot, la presenza dei componenti non basta a garantire che ogni comando sia funzionante senza test sul NAS.
+8. Gestione file e NAS
+- Percorsi personalizzati per upload e download.
+- Percorsi salvati e selezionabili.
+- Modifica dei percorsi anche con operazioni già in coda.
+- Protezione dei percorsi associati ai trasferimenti esistenti.
+- Verifica delle autorizzazioni di lettura, scrittura e cancellazione.
+- Selezione multipla ed eliminazione locale con conferma.
+- Protezione dei file coinvolti in trasferimenti.
+- Backup dei messaggi e dei media.
+- Ripristino dei media verso Telegram.
+- Integrazione cloud tramite rclone per servizi supportati.
+9. Log, sicurezza e diagnostica
+- Registro delle operazioni.
+- Informazioni sugli errori e sullo stato dei servizi.
+- Diagnostica di versione e connessione.
+- Isolamento dei dati per utente DSM.
+- Protezioni di sessione e CSRF.
+- Informazioni del creatore naplex19.
+- Versione visualizzata 1.2-00206 nei punti aggiornati del pacchetto.
+
 ## Novità — Versione 1.2-00202
 
 ### Banda modificabile durante i trasferimenti
